@@ -1,0 +1,182 @@
+/* General styles for the theme */
+html, body {
+    --header-bg: #12161e; /* Navbar background color */
+    --accent: #9b7dff; /* Accent color for links (purple) */
+    --body-fg: #ffffff; /* White color for normal text */
+    margin: 0;
+    padding: 0;
+    background-color: #0f0c19;
+    color: var(--body-fg);
+    font-family: 'Nunito', sans-serif; /* Updated to Nunito */
+    padding: 20px;
+}
+
+body * {
+    box-sizing: border-box;
+    line-height: 1.5em;
+}
+
+a {
+    color: var(--accent); /* Purple color for links */
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+    color: var(--body-fg); /* White color on hover */
+}
+
+h1, h2 {
+    font-size: 2em;
+    margin: 0;
+    border-bottom: 4px solid var(--accent); /* Purple border */
+    border-radius: 5px;
+    background-color: rgba(155, 125, 255, 0.13); /* Transparent purple background */
+    padding: 20px;
+    padding-bottom: 17px;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+main {
+    max-width: 1000px;
+    margin: auto;
+    padding-top: 80px; /* Extra padding for fixed navbar */
+}
+
+p img {
+    margin: 10px 0;
+}
+
+hr {
+    border: 1px solid var(--accent); /* Purple border for horizontal rules */
+}
+
+/* Project section */
+.projects {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.projects > div {
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+.projects h3 {
+    border-bottom: 2px solid var(--accent); /* Purple border */
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    color: var(--body-fg); /* White text */
+}
+
+.projects ul {
+    list-style: none;
+    padding: 0;
+}
+
+.projects li {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .projects > div {
+        width: 100%;
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+/* Navigation bar styles */
+nav {
+    background-color: var(--header-bg); /* Navigation bar background */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: top 0.3s;
+}
+
+nav .menu-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    z-index: 1100; /* Ensure it's above other elements */
+}
+
+nav .logo {
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin: 0 auto;
+}
+
+nav .logo img.avatar {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
+    border-radius: 50%; /* Make the image a circle */
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+nav .logo:hover img.avatar {
+    transform: scale(1.1); /* Slight zoom on hover */
+}
+
+nav .logo a {
+    color: white;
+    text-decoration: none;
+}
+
+nav .logo:hover {
+    opacity: 0.8;
+}
+
+.menu-toggle.active + .nav-menu {
+    display: block;
+}
+
+.nav-menu {
+    display: none; 
+    position: absolute;
+    top: 60px;
+    left: 20px;
+    background: var(--header-bg);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.nav-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: background 0.2s;
+}
+
+.nav-menu a:hover {
+    background: var(--accent);
+}
+
+.nav-menu.show {
+    display: block;
+}
