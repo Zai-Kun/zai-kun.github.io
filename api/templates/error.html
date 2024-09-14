@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{error_code}} - {{title}}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0f0c19;
+        }
+
+        .container-error {
+            text-align: center;
+            color: var(--body-fg); 
+            font-family: 'Nunito', sans-serif;
+        }
+
+        h1 {
+            font-size: 5em;
+            margin-left: 25px;
+            margin-right: 25px;
+            color: var(--accent);
+            animation: glitch 1s infinite; 
+        }
+
+        p {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: var(--body-fg);
+        }
+
+        a {
+            font-size: 1.2em;
+            color: var(--accent);
+            text-decoration: none;
+            border: 2px solid var(--accent);
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-2px, 2px);
+            }
+            40% {
+                transform: translate(-2px, -2px);
+            }
+            60% {
+                transform: translate(2px, 2px);
+            }
+            80% {
+                transform: translate(2px, -2px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-error">
+        <h1>{{ error_code }}</h1>
+        <p>{{ error_msg }}</p>
+        <a href="/">Go back home</a>
+    </div>
+</body>
+</html>

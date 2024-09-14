@@ -37,3 +37,124 @@ def favicon():
     icon_io.seek(0)
 
     return send_file(icon_io, mimetype="image/x-icon")
+
+
+# error handlers
+@app.errorhandler(404)
+def page_not_found(_):
+    return (
+        render_template(
+            "error.html",
+            error_code=404,
+            error_msg="Oops! The page you're looking for doesn't exist.",
+            title="Page Not Found!",
+        ),
+        404,
+    )
+
+
+@app.errorhandler(400)
+def bad_request(_):
+    return (
+        render_template(
+            "error.html",
+            error_code=400,
+            error_msg="The server could not understand the request due to invalid syntax.",
+            title="Bad Request!",
+        ),
+        400,
+    )
+
+
+@app.errorhandler(403)
+def forbidden(_):
+    return (
+        render_template(
+            "error.html",
+            error_code=403,
+            error_msg="You don't have permission to access this resource.",
+            title="Forbidden!",
+        ),
+        403,
+    )
+
+
+@app.errorhandler(405)
+def method_not_allowed(_):
+    return (
+        render_template(
+            "error.html",
+            error_code=405,
+            error_msg="The request method is not allowed for the requested URL.",
+            title="Method Not Allowed!",
+        ),
+        405,
+    )
+
+
+@app.errorhandler(408)
+def request_timeout(_):
+    return (
+        render_template(
+            "error.html",
+            error_code=408,
+            error_msg="The server timed out waiting for the request.",
+            title="Request Timeout!",
+        ),
+        408,
+    )
+
+
+@app.errorhandler(500)
+def internal_server_error(_):
+    return (
+        render_template(
+            "error.html",
+            error_code=500,
+            error_msg="The server encountered an internal error and was unable to complete your request.",
+            title="Internal Server Error!",
+        ),
+        500,
+    )
+
+
+@app.errorhandler(502)
+def bad_gateway(_):
+    return (
+        render_template(
+            "error.html",
+            error_code=502,
+            error_msg="The server received an invalid response from the upstream server.",
+            title="Bad Gateway!",
+        ),
+        502,
+    )
+
+
+@app.errorhandler(503)
+def service_unavailable(_):
+    return (
+        render_template(
+            "error.html",
+            error_code=503,
+            error_msg="The server is currently unavailable. Please try again later.",
+            title="Service Unavailable!",
+        ),
+        503,
+    )
+
+
+@app.errorhandler(504)
+def gateway_timeout(_):
+    return (
+        render_template(
+            "error.html",
+            error_code=504,
+            error_msg="The server did not receive a timely response from the upstream server.",
+            title="Gateway Timeout!",
+        ),
+        504,
+    )
+
+
+app.run(debug=True, host="0.0.0.0")
