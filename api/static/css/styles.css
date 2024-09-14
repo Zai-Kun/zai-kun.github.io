@@ -1,13 +1,18 @@
 /* General styles for the theme */
-html, body {
-    --header-bg: #12161e; /* Navbar background color */
-    --accent: #9b7dff; /* Accent color for links (purple) */
-    --body-fg: #ffffff; /* White color for normal text */
+html,
+body {
+    --header-bg: #12161e;
+    /* Navbar background color */
+    --accent: #9b7dff;
+    /* Accent color for links (purple) */
+    --body-fg: #ffffff;
+    /* White color for normal text */
     margin: 0;
     padding: 0;
     background-color: #0f0c19;
     color: var(--body-fg);
-    font-family: 'Nunito', sans-serif; /* Updated to Nunito */
+    font-family: 'Nunito', sans-serif;
+    /* Updated to Nunito */
     padding: 20px;
 }
 
@@ -17,21 +22,26 @@ body * {
 }
 
 a {
-    color: var(--accent); /* Purple color for links */
+    color: var(--accent);
+    /* Purple color for links */
     text-decoration: none;
     transition: all 0.2s ease-in-out;
 }
 
 a:hover {
-    color: var(--body-fg); /* White color on hover */
+    color: var(--body-fg);
+    /* White color on hover */
 }
 
-h1, h2 {
+h1,
+h2 {
     font-size: 2em;
     margin: 0;
-    border-bottom: 4px solid var(--accent); /* Purple border */
+    border-bottom: 4px solid var(--accent);
+    /* Purple border */
     border-radius: 5px;
-    background-color: rgba(155, 125, 255, 0.13); /* Transparent purple background */
+    background-color: rgba(155, 125, 255, 0.13);
+    /* Transparent purple background */
     padding: 20px;
     padding-bottom: 17px;
 }
@@ -43,7 +53,8 @@ h2 {
 main {
     max-width: 1000px;
     margin: auto;
-    padding-top: 80px; /* Extra padding for fixed navbar */
+    padding-top: 80px;
+    /* Extra padding for fixed navbar */
 }
 
 p img {
@@ -51,7 +62,8 @@ p img {
 }
 
 hr {
-    border: 1px solid var(--accent); /* Purple border for horizontal rules */
+    border: 1px solid var(--accent);
+    /* Purple border for horizontal rules */
 }
 
 /* Project section */
@@ -61,16 +73,18 @@ hr {
     flex-wrap: wrap;
 }
 
-.projects > div {
+.projects>div {
     width: 48%;
     margin-bottom: 20px;
 }
 
 .projects h3 {
-    border-bottom: 2px solid var(--accent); /* Purple border */
+    border-bottom: 2px solid var(--accent);
+    /* Purple border */
     padding-bottom: 10px;
     margin-bottom: 10px;
-    color: var(--body-fg); /* White text */
+    color: var(--body-fg);
+    /* White text */
 }
 
 .projects ul {
@@ -83,7 +97,7 @@ hr {
 }
 
 @media (max-width: 768px) {
-    .projects > div {
+    .projects>div {
         width: 100%;
     }
 }
@@ -94,7 +108,8 @@ hr {
 
 /* Navigation bar styles */
 nav {
-    background-color: var(--header-bg); /* Navigation bar background */
+    background-color: var(--header-bg);
+    /* Navigation bar background */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -117,7 +132,8 @@ nav .menu-toggle {
     cursor: pointer;
     position: absolute;
     left: 20px;
-    z-index: 1100; /* Ensure it's above other elements */
+    z-index: 1100;
+    /* Ensure it's above other elements */
 }
 
 nav .logo {
@@ -129,15 +145,18 @@ nav .logo {
 }
 
 nav .logo img.avatar {
-    width: 40px; /* Adjust size as needed */
+    width: 40px;
+    /* Adjust size as needed */
     height: 40px;
-    border-radius: 50%; /* Make the image a circle */
+    border-radius: 50%;
+    /* Make the image a circle */
     margin-right: 10px;
     transition: transform 0.3s ease;
 }
 
 nav .logo:hover img.avatar {
-    transform: scale(1.1); /* Slight zoom on hover */
+    transform: scale(1.1);
+    /* Slight zoom on hover */
 }
 
 nav .logo a {
@@ -149,12 +168,12 @@ nav .logo:hover {
     opacity: 0.8;
 }
 
-.menu-toggle.active + .nav-menu {
+.menu-toggle.active+.nav-menu {
     display: block;
 }
 
 .nav-menu {
-    display: none; 
+    display: none;
     position: absolute;
     top: 60px;
     left: 20px;
@@ -167,7 +186,7 @@ nav .logo:hover {
 
 .nav-menu a {
     display: block;
-    color: white;
+    color: var(--accent);
     text-decoration: none;
     padding: 10px;
     transition: background 0.2s;
@@ -175,6 +194,7 @@ nav .logo:hover {
 
 .nav-menu a:hover {
     background: var(--accent);
+    color: white;
 }
 
 .nav-menu.show {
