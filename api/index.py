@@ -157,10 +157,5 @@ def favicon():
     return send_file(icon_io, mimetype="image/x-icon")
 
 
-@app.route("/.well-known/discord")
-def verify():
-    return "dh=8b2d54004d340100e17d5e5b86c3b57bf80197dc"
-
-
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0")
