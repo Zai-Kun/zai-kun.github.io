@@ -7,38 +7,6 @@ from PIL import Image, ImageDraw
 app = Flask(__name__)
 
 
-@app.route("/")
-def index():
-    return render_template("home.html")
-
-
-@app.route("/projects")
-def projects():
-    return render_template("projects.html")
-
-
-@app.route("/favicon.ico")
-def favicon():
-    image_url = "https://avatars.githubusercontent.com/u/122824602?v=4"
-
-    response = requests.get(image_url)
-    image = Image.open(BytesIO(response.content)).convert("RGBA")
-
-    mask = Image.new("L", image.size, 0)
-    draw = ImageDraw.Draw(mask)
-    draw.ellipse((0, 0, image.size[0], image.size[1]), fill=255)
-
-    rounded_image = Image.new("RGBA", image.size, (0, 0, 0, 0))
-    rounded_image.paste(image, (0, 0), mask=mask)
-
-    icon_io = BytesIO()
-    rounded_image = rounded_image.convert("RGBA")
-    rounded_image.save(icon_io, format="ICO")
-    icon_io.seek(0)
-
-    return send_file(icon_io, mimetype="image/x-icon")
-
-
 # error handlers
 @app.errorhandler(404)
 def page_not_found(_):
@@ -155,6 +123,43 @@ def gateway_timeout(_):
         ),
         504,
     )
+
+
+@app.route("/")
+def index():
+    return render_template("home.html")
+
+
+@app.route("/projects")
+def projects():
+    return render_template("projects.html")
+
+
+@app.route("/favicon.ico")
+def favicon():
+    image_url = "https://avatars.githubusercontent.com/u/122824602?v=4"
+
+    response = requests.get(image_url)
+    image = Image.open(BytesIO(response.content)).convert("RGBA")
+
+    mask = Image.new("L", image.size, 0)
+    draw = ImageDraw.Draw(mask)
+    draw.ellipse((0, 0, image.size[0], image.size[1]), fill=255)
+
+    rounded_image = Image.new("RGBA", image.size, (0, 0, 0, 0))
+    rounded_image.paste(image, (0, 0), mask=mask)
+
+    icon_io = BytesIO()
+    rounded_image = rounded_image.convert("RGBA")
+    rounded_image.save(icon_io, format="ICO")
+    icon_io.seek(0)
+
+    return send_file(icon_io, mimetype="image/x-icon")
+
+
+@app.route("/.well-known/discord")
+def verify():
+    return "dh=8b2d54004d340100e17d5e5b86c3b57bf80197dc"
 
 
 if __name__ == "__main__":
